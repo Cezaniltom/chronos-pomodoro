@@ -9,14 +9,14 @@
     --gray-800: #181f2e;
     --gray-900: #0a0f1a;
 
-    --primary-light: #4dd2e7;
     --primary: #0d75a1;
     --primary-dark: #06465f;
+    --primary-light: #4dd2e7;
 
     --link-color: #10abb9;
     --link-hover: #0b7b8a;
 
-    --success: #22c55e;
+    --success: #0da170;
     --warning: #eab308;
     --error: #991b1b;
     --info: #0ea5e9;
