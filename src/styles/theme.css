@@ -1,7 +1,4 @@
 :root {
-<<<<<<< HEAD
-    --primary: #345542;
-=======
     --gray-100: #e6e9f0;
     --gray-200: #cdd3e1;
     --gray-300: #aab3cc;
@@ -37,5 +34,4 @@
 
     --disabled: #555f7d;
     --text-disabled: #aab3cc;
->>>>>>> developer
 }
