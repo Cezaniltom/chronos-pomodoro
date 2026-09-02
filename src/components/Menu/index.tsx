@@ -11,6 +11,11 @@ export function Menu() {
     function handleClickTheme(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
         e.preventDefault()
         console.log('vendo o estado')
+
+        setTheme(prevTheme => {
+            const nextTheme = prevTheme === 'dark' ? 'light' : 'dark'
+            return console.log(nextTheme)
+        })
     }
 
     return <nav className={styles.menu}>
