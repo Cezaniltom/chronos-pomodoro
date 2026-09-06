@@ -1,4 +1,4 @@
-import { HistoryIcon, HouseIcon, SettingsIcon, SunIcon } from 'lucide-react';
+import { HistoryIcon, HouseIcon, MoonIcon, SettingsIcon, SunIcon } from 'lucide-react';
 import styles from './styles.module.css';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +11,11 @@ export function Menu() {
 
         return storageTheme
     })
+
+    const nextThemeIcon = {
+        dark: <SunIcon />,
+        light: <MoonIcon />
+    }
 
     function handleClickTheme(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
         e.preventDefault()
@@ -37,7 +42,7 @@ export function Menu() {
             <SettingsIcon />
         </a>
         <a className={styles.menuLink} href="#" onClick={handleClickTheme}>
-            <SunIcon />
+            {nextThemeIcon[theme]}
         </a>
     </nav>;
 }
