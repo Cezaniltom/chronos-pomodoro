@@ -6,7 +6,11 @@ type ThemeColor = 'dark' | 'light'
 
 export function Menu() {
 
-    const [theme, setTheme] = useState<ThemeColor>('dark')
+    const [theme, setTheme] = useState<ThemeColor>(() => {
+        const storageTheme = localStorage.getItem('theme') as ThemeColor || 'dark'
+
+        return storageTheme
+    })
 
     function handleClickTheme(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
         e.preventDefault()
@@ -19,6 +23,7 @@ export function Menu() {
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme)
+        localStorage.setItem('theme', theme)
     }, [theme])
 
     return <nav className={styles.menu}>
