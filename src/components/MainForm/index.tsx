@@ -3,9 +3,8 @@ import { DefaultButton } from "../DefaultButton";
 import { DefaultInput } from "../DefaultInput";
 import { Cycles } from "../Cycles";
 import { Footer } from "../Footer";
-import type { HomeProps } from "../../pages/Home";
 
-export function MainForm({state}: HomeProps) {
+export function MainForm() {
     return (
         <form className='form' action="">
             <div className="formRow">
@@ -19,7 +18,7 @@ export function MainForm({state}: HomeProps) {
             </div>
 
             <div className="formRow">
-                <p>O proximo intervalo é de {state.config.workTime} min</p>
+                <p>O proximo intervalo é de 00:00 min</p>
             </div>  
 
             <div className="formRow">
