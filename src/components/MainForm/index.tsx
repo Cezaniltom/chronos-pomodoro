@@ -3,10 +3,25 @@ import { DefaultButton } from "../DefaultButton";
 import { DefaultInput } from "../DefaultInput";
 import { Cycles } from "../Cycles";
 import { Footer } from "../Footer";
+import { useTaskContext } from "../../contexts/TaskContext";
 
 export function MainForm() {
+
+    const { setState } = useTaskContext()
+
+    function handleClick() {
+        setState(prevState => {
+            return {
+                ...prevState,
+                formattedSecondsRemaining: '21:00',
+            }  
+        })
+    }
+
     return (
         <form className='form' action="">
+
+            <button onClick={handleClick} type="button">Alterar tempo</button>
             <div className="formRow">
                 <DefaultInput 
                 labelText='task' 
@@ -18,7 +33,7 @@ export function MainForm() {
             </div>
 
             <div className="formRow">
-                <p>O proximo intervalo é de 00:00 min</p>
+                <p>O proximo intervalo é de 25min</p>
             </div>  
 
             <div className="formRow">
