@@ -3,7 +3,7 @@ import { DefaultButton } from "../DefaultButton";
 import { DefaultInput } from "../DefaultInput";
 import { Cycles } from "../Cycles";
 import { Footer } from "../Footer";
-import { useTaskContext } from "../../contexts/TaskContext";
+import { useTaskContext } from "../../contexts/TaskContext/useTaskContext";
 
 export function MainForm() {
 
