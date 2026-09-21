@@ -5,8 +5,15 @@ import { Cycles } from "../Cycles";
 import { Footer } from "../Footer";
 
 export function MainForm() {
+
+    function handleCreateNewTask(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        console.log('Deu certo')
+    }
+
     return (
-        <form className='form' action="">
+        <form onSubmit={handleCreateNewTask} className='form' action="">
             <div className="formRow">
                 <DefaultInput 
                 labelText='task' 
