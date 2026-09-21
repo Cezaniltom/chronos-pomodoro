@@ -3,8 +3,11 @@ import { DefaultButton } from "../DefaultButton";
 import { DefaultInput } from "../DefaultInput";
 import { Cycles } from "../Cycles";
 import { Footer } from "../Footer";
+import { useState } from "react";
 
 export function MainForm() {
+
+    const [taskName, setTaskName] = useState('')
 
     function handleCreateNewTask(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -20,7 +23,8 @@ export function MainForm() {
                 id='meuInput' 
                 type='text'
                 placeholder='Digite algo'
-                defaultValue='Valor preenchido'
+                value={taskName}
+                onChange={(e) => setTaskName(e.target.value)}
                 />
             </div>
 
@@ -34,7 +38,7 @@ export function MainForm() {
 
             <div className="formRow">
                 <DefaultButton icon={<PlayCircleIcon />} color='green'/>
-                <DefaultButton icon={<StopCircleIcon />} color='red'/>
+                {/* <DefaultButton icon={<StopCircleIcon />} color='red'/> */}
             </div>
 
             <div>
