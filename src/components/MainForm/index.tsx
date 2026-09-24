@@ -1,4 +1,4 @@
-import { PlayCircleIcon } from "lucide-react";
+import { PlayCircleIcon, StopCircleIcon } from "lucide-react";
 import { DefaultButton } from "../DefaultButton";
 import { DefaultInput } from "../DefaultInput";
 import { Cycles } from "../Cycles";
@@ -58,6 +58,21 @@ export function MainForm() {
         })
     }
 
+    function handleInterruptTask(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+
+        e.preventDefault()
+
+        setState(prevState => {
+            return {
+                ...prevState,
+                activeTask: null,
+                secondsRemaining: 0,
+                formattedSecondsRemaining: '00:00',
+            }
+
+        })
+    }
+
     return (
         <form onSubmit={handleCreateNewTask} className='form' action="">
             <div className="formRow">
@@ -67,6 +82,7 @@ export function MainForm() {
                 type='text'
                 placeholder='Digite algo'
                 ref={taskNameInput}
+                disabled={!!state.activeTask}
                 />
             </div>
 
@@ -81,8 +97,23 @@ export function MainForm() {
             )}
 
             <div className="formRow">
-                <DefaultButton icon={<PlayCircleIcon />} color='green'/>
-                {/* <DefaultButton icon={<StopCircleIcon />} color='red'/> */}
+                {!state.activeTask && (
+                    <DefaultButton 
+                        aria-label="Iniciar nova tarefa" title="iniciar nova tarefa"
+                        type="submit"
+                        icon={<PlayCircleIcon />}
+                    />
+                )} 
+                
+                {!!state.activeTask && (
+                    <DefaultButton
+                        aria-label="Interromper tarefa atual" title="Interromper tarefa atual"
+                        type="button"
+                        color='red'
+                        icon={<StopCircleIcon />}
+                        onClick={handleInterruptTask}
+                    />
+                )}
             </div>
 
             <div>
