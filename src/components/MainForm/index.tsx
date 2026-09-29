@@ -9,6 +9,7 @@ import { useTaskContext } from "../../contexts/TaskContext/useTaskContext";
 import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import { TaskActionTypes } from "../../contexts/TaskContext/taskActions";
+import { Tips } from "../tips";
 
 export function MainForm() {
     const {state, dispatch} = useTaskContext()
@@ -16,6 +17,7 @@ export function MainForm() {
 
     const nextCycle = getNextCycle(state.currentCycle)
     const NextCycleType = getNextCycleType(nextCycle)
+
 
     function handleCreateNewTask(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -60,7 +62,7 @@ export function MainForm() {
             </div>
 
             <div className="formRow">
-                <p>O proximo intervalo é de 25min</p>
+                <Tips />
             </div>  
 
             {state.currentCycle > 0 && (
