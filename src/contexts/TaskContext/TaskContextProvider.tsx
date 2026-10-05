@@ -2,7 +2,7 @@ import { useEffect, useReducer, type ReactNode } from "react"
 import { initialTaskState } from "./initialTaskState"
 import { TaskContext } from "./TaskContext"
 import { taskReducer } from "./taskReducer"
-import { TimerWorkerManager } from "../../components/workers/TimerWorkerManager"
+import { TimerWorkerManager } from "../../workers/TimerWorkerManager"
 
 type TasksContextProviderProps = {
   children: ReactNode
