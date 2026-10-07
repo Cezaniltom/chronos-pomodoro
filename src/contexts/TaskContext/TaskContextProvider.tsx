@@ -16,7 +16,6 @@ export function TaskContextProvider({ children }: TasksContextProviderProps) {
 
   worker.onmessage(e => {
     const countDownSeconds = e.data
-    console.log(countDownSeconds)
 
     if(countDownSeconds <= 0) {
       dispatch({
@@ -33,7 +32,6 @@ export function TaskContextProvider({ children }: TasksContextProviderProps) {
 
   useEffect(() => {
     if(!state.activeTask) {
-      console.log('Worker terminado por falta de activeTask')
       worker.terminate()
     }
 
