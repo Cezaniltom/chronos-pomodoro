@@ -10,6 +10,7 @@ import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import { TaskActionTypes } from "../../contexts/TaskContext/taskActions";
 import { Tips } from "../tips";
+import { toast } from "react-toastify";
 
 export function MainForm() {
     const {state, dispatch} = useTaskContext()
@@ -27,7 +28,7 @@ export function MainForm() {
         const taskName = taskNameInput.current.value.trim()
 
         if(!taskName) {
-            alert('Digite o nome da tarefa')
+            toast.warning('Digite o nome da tarefa')
             return
         }
 
